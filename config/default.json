@@ -1,3 +1,3 @@
 {
-    "mongoURI": "enter our MongoDB Atlas URL"
+    "mongoURI": "mongodb+srv://anpeteran:%21%40%23peter@cluster0.qp56ll4.mongodb.net/articles?retryWrites=true&w=majority"
 }
