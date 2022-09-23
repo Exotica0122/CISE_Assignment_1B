@@ -2,10 +2,11 @@ const path = require("path");
 const express = require("express");
 const connectDB = require("./config/db");
 var cors = require("cors");
-require("dotenv").config({ path: "./config.env" });
+require("dotenv").config({ path: "./config.env" }); // TODO: add this shit
 
 // routes
-const example = require("./routes/example-route");
+// TODO: Add routes for articles
+const articles = require("./routes/articleRoutes");
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.use(cors({ origin: true, credentials: true }));
 app.use(express.json({ extended: false }));
 
 // use Routes
-app.use("/api/articles", example);
+app.use("/api/articles", articles);
 
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static(path.join(__dirname, "frontend/build")));
