@@ -11,10 +11,11 @@ const Moderator = () => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:8082/api/articles")
+        axios.get(`http://localhost:8082/api/articles`)
             .then((res) => {
-                setArticles(res.data);
+                //Filtering articles that are unchecked for moderator
+                const checkedArticles = res.data;
+                setArticles(checkedArticles.filter(article => article.status.includes('Unchecked')))
             })
             .catch((error) => {
                 console.log(error);
