@@ -4,6 +4,12 @@ import Styles from "../components/tablestyle.js";
 import Table from "../components/evidencetable.js";
 import tablecolumns from "../components/tablecolumnsmod.js";
 import Dropdown from "../components/Dropdown.js";
+<<<<<<< Updated upstream
+=======
+import CustomizedTables from "../components/StyledTable";
+import StyledPaginationTableMod from "../components/StyledPaginationTableMod";
+
+>>>>>>> Stashed changes
 import axios from "axios";
 
 const Moderator = () => {
@@ -23,9 +29,7 @@ const Moderator = () => {
 
     const dataColumn =
         articles.length > 0 ? (
-            <Styles>
-                <Table data={articles} columns={tablecolumns} />
-            </Styles>
+            <StyledPaginationTableMod articles={articles} />
         ) : (
             <p>Loading articles</p>
         );
