@@ -1,15 +1,36 @@
 import React from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 import SEPractices from "../dummydata/SEPractices";
 
+
 const optionItems = SEPractices.map((SEPractice) => (
-    <option key={SEPractice.practice}>{SEPractice.practice}</option>
+  <MenuItem value={SEPractice.practice}>{SEPractice.practice}</MenuItem>
 ));
+
 const Dropdown = () => {
-    return (
-        <div>
-            <option value="">Select an SE Practice </option>
-            <select>{optionItems}</select>
-        </div>
-    );
+  const [practices, setPractices] = React.useState("");
+
+  const handleChange = (event) => {
+    setPractices(event.target.value);
+  };
+
+  return (
+    <FormControl fullWidth>
+      <InputLabel id="demo-simple-select-label">Practices</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={practices}
+        label="Practices"
+        onChange={handleChange}
+      >
+        {optionItems}
+      </Select>
+    </FormControl>
+  );
 };
 export default Dropdown;
