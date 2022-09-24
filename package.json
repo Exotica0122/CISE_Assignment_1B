@@ -26,7 +26,7 @@
     "express": "^4.18.1",
     "mongoose": "^6.5.2",
     "nodemon": "^2.0.19",
-    "react-hook-form": "^7.36.0",
+    "react-hook-form": "^7.36.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-table": "^7.8.0",
