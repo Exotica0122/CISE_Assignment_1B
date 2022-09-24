@@ -4,7 +4,6 @@ import Styles from "../components/tablestyle.js";
 import Table from "../components/evidencetable.js";
 import tablecolumns from "../components/tablecolumnsmod.js";
 import Dropdown from "../components/Dropdown.js";
-
 import axios from "axios";
 
 const Moderator = () => {
