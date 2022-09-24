@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
-// import articles from "../dummydata/articles.js";
-import Styles from "../components/tablestyle.js";
-import Table from "../components/evidencetable.js";
-import tablecolumns from "../components/tablecolumns.js";
 import Dropdown from "../components/Dropdown.js";
-import CustomizedTables from "../components/StyledTable";
-import StyledPaginationTable from "../components/StyledPaginationTable";
+import ArticlesTable from "../components/ArticlesTable";
 
 import axios from "axios";
 
@@ -23,25 +18,9 @@ const SEPractice = () => {
       });
   }, []);
 
-  // const dataColumn =
-  //   articles.length > 0 ? (
-  //     <Styles>
-  //       <Table data={articles} columns={tablecolumns} />
-  //     </Styles>
-  //   ) : (
-  //     <p>Loading articles</p>
-  //   );
-
-  //   const dataColumn =
-  //     articles.length > 0 ? (
-  //       <CustomizedTables articles={articles} />
-  //     ) : (
-  //       <p>Loading articles</p>
-  //     );
-
   const dataColumn =
     articles.length > 0 ? (
-      <StyledPaginationTable articles={articles} />
+      <ArticlesTable articles={articles} />
     ) : (
       <p>Loading articles</p>
     );

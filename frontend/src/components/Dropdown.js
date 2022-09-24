@@ -6,9 +6,10 @@ import Select from "@mui/material/Select";
 
 import SEPractices from "../dummydata/SEPractices";
 
-
 const optionItems = SEPractices.map((SEPractice) => (
-  <MenuItem value={SEPractice.practice}>{SEPractice.practice}</MenuItem>
+  <MenuItem key={SEPractice.practice} value={SEPractice.practice}>
+    {SEPractice.practice}
+  </MenuItem>
 ));
 
 const Dropdown = () => {
@@ -19,7 +20,7 @@ const Dropdown = () => {
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl style={{ minWidth: 240 }}>
       <InputLabel id="demo-simple-select-label">Practices</InputLabel>
       <Select
         labelId="demo-simple-select-label"
