@@ -42,7 +42,7 @@ const createData = (
   return { id, title, authors, source, pubyear, doi, claim, evidence };
 };
 
-const ArticlesTable = (props) => {
+const ModeratorTable = (props) => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -122,4 +122,4 @@ const ArticlesTable = (props) => {
   );
 }
 
-export default ArticlesTable;
+export default ModeratorTable;

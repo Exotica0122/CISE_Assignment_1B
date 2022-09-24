@@ -3,16 +3,14 @@ import ArticlesTable from "../components/ArticlesTable";
 
 import axios from "axios";
 
-const Moderator = () => {
+const Analyst = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:8082/api/articles")
       .then((res) => {
-        setArticles(
-          res.data.filter((article) => article.status === "Unchecked")
-        );
+        setArticles(res.data.filter((article) => article.status === "Checked"));
       })
       .catch((error) => {
         console.log(error);
@@ -28,10 +26,10 @@ const Moderator = () => {
 
   return (
     <div>
-      <h2>Approve Articles Submitted by Users</h2>
+      <h2>Analyst Article</h2>
       {dataColumn}
     </div>
   );
 };
 
-export default Moderator;
+export default Analyst;

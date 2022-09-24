@@ -11,7 +11,9 @@ const SEPractice = () => {
     axios
       .get("http://localhost:8082/api/articles")
       .then((res) => {
-        setArticles(res.data);
+        setArticles(
+          res.data.filter((article) => article.status === "Approved")
+        );
       })
       .catch((error) => {
         console.log(error);
