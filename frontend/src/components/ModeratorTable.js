@@ -17,7 +17,7 @@ const columns = [
   { id: "doi", label: "DOI", minWidth: 100 },
   { id: "claim", label: "Claim", minWidth: 75 },
   { id: "evidence", label: "Evidence", minWidth: 75 },
-  { id: "status", label: "Status", minWidth: 75 },
+  { id: "action", label: "Action", minWidth: 75 },
 ];
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
