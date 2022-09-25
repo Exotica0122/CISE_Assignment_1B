@@ -29,8 +29,8 @@ const ArticleSchema = new mongoose.Schema({
     },
     status: {
         type: String, //unchecked, checked, approved, rejected
-        default: "Unchecked"
-    }
+        default: "Unchecked",
+    },
 });
 
 module.exports = Article = mongoose.model("article", ArticleSchema);
