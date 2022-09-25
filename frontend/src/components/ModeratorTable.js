@@ -125,8 +125,8 @@ const ModeratorTable = (props) => {
                       if (column.id === "action") {
                         return (
                           <>
-                            <Button variant="contained" onClick={()=> handleAccept(row.id)}>Accept</Button>
-                            <Button variant="contained" onClick={()=> handleReject(row.id)}>Decline</Button>
+                            <Button variant="contained" color="success" onClick={()=> handleAccept(row.id)}>Accept</Button>
+                            <Button variant="outlined" color="error" onClick={()=> handleReject(row.id)}>Reject</Button>
                           </>
                         );
                       }
