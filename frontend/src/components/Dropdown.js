@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -12,11 +12,12 @@ const optionItems = SEPractices.map((SEPractice) => (
   </MenuItem>
 ));
 
-const Dropdown = () => {
+const Dropdown = (props) => {
   const [practices, setPractices] = useState("");
 
   const handleChange = (event) => {
     setPractices(event.target.value);
+    props.setPractice(event.target.value);
   };
 
   return (
@@ -29,6 +30,9 @@ const Dropdown = () => {
         label="Practices"
         onChange={handleChange}
       >
+        <MenuItem key="none" value="none">
+          None
+        </MenuItem>
         {optionItems}
       </Select>
     </FormControl>

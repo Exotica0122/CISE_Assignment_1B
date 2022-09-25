@@ -6,6 +6,7 @@ import axios from "axios";
 
 const SEPractice = () => {
   const [articles, setArticles] = useState([]);
+  const [practice, setPractice] = useState("");
 
   useEffect(() => {
     axios
@@ -20,9 +21,16 @@ const SEPractice = () => {
       });
   }, []);
 
-  const dataColumn =
+  let filteredArticle = articles;
+  if (practice && practice !== "none") {
+    filteredArticle = articles.filter(
+      (article) => article.sepractice === practice
+    );
+  }
+
+  let dataColumn =
     articles.length > 0 ? (
-      <ArticlesTable articles={articles} />
+      <ArticlesTable articles={filteredArticle} />
     ) : (
       <p>Loading articles</p>
     );
@@ -30,7 +38,7 @@ const SEPractice = () => {
   return (
     <div>
       <h2>Select SE Practice to get evidence for the claimed benefits</h2>
-      <Dropdown />
+      <Dropdown setPractice={setPractice} />
       {dataColumn}
     </div>
   );

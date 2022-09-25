@@ -33,7 +33,7 @@ const postArticle = (req, res, next) => {
 
 const editArticleById = (req, res, next) => {
     const articleId = req.params.id;
-    const { title, authors, source, pubyear, doi, claim, evidence } = req.body;
+    const { title, authors, source, pubyear, doi, claim, evidence, sepractice } = req.body;
 
     Article.findById(articleId)
         .then((article) => {
@@ -44,6 +44,7 @@ const editArticleById = (req, res, next) => {
             article.doi = doi;
             article.claim = claim;
             article.evidence = evidence;
+            article.sepractice = sepractice;
             res.json(article);
         })
         .catch((err) =>
