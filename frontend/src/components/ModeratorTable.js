@@ -58,7 +58,7 @@ const ModeratorTable = (props) => {
       pubyear,
       doi,
       claim,
-      evidence,
+      evidence
     );
   });
 
@@ -71,27 +71,6 @@ const ModeratorTable = (props) => {
     setPage(0);
   };
 
-  
-  const moderateArticles = (row) => {
-    return (
-      <TableCell>
-        <button type="button" onClick={()=>handleAccept(row)}>
-          Accept
-        </button>
-        <button type="button" onClick={()=>handleReject(row)}>
-          Reject
-        </button>
-      </TableCell>
-    );
-  }
-
-  function handleAccept(id) {
-    console.log(id);
-  }
-
-  function handleReject(id) {
-    console.log(id);
-  }
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: 640 }}>
@@ -119,11 +98,12 @@ const ModeratorTable = (props) => {
                       const value = row[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number" ? column.format(value) : value}
+                          {column.format && typeof value === "number"
+                            ? column.format(value)
+                            : value}
                         </TableCell>
                       );
                     })}
-                    {moderateArticles(row.id)}
                   </TableRow>
                 );
               })}

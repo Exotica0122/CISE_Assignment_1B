@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ArticlesTable from "../components/ArticlesTable";
 import ModeratorTable from "../components/ModeratorTable";
 
 import axios from "axios";
