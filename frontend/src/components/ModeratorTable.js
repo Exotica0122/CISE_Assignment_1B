@@ -118,6 +118,6 @@ const ModeratorTable = (props) => {
       />
     </Paper>
   );
-}
+};
 
 export default ModeratorTable;
