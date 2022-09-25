@@ -8,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import axios from "axios";
 
 const columns = [
   { id: "title", label: "Title", minWidth: 220 },
@@ -71,27 +72,44 @@ const ModeratorTable = (props) => {
     setPage(0);
   };
 
-  
+
   const moderateArticles = (row) => {
     return (
       <TableCell>
-        <button type="button" onClick={()=>handleAccept(row)}>
+        <button type="button" onClick={() => handleAccept(row)}>
           Accept
         </button>
-        <button type="button" onClick={()=>handleReject(row)}>
+        <button type="button" onClick={() => handleReject(row)}>
           Reject
         </button>
       </TableCell>
     );
   }
 
-  function handleAccept(id) {
-    console.log(id);
+  function handleAccept(articleid) {
+    const updateArticle = { status: 'modAccepted' };
+    axios
+      .post('/update/' + articleid, updateArticle)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log("Error with accepting article!");
+      })
   }
 
-  function handleReject(id) {
-    console.log(id);
+  function handleReject(articleid) {
+    const updateArticle = { status: 'modRejected' };
+    axios
+      .post('/update/' + articleid, updateArticle)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log("Error with rejecting article!");
+      })
   }
+
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: 640 }}>
