@@ -17,7 +17,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <h1>Software Engineering Empirical Evidence Database (SEED)</h1>
+        <h1 style={{color: "#303030"}}>Software Engineering Empirical Evidence Database (SEED)</h1>
         <NavBar />
         <div className="content">
           <Switch>

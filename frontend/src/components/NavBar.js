@@ -30,7 +30,7 @@ const NavBar = () => {
 
   return (
     <AppBar position="static" style={{ background: '#2E3B55' }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="x1">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
