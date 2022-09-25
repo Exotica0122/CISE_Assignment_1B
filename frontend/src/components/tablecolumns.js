@@ -31,10 +31,6 @@ const tablecolumns = [
         Header: "Level of Evidence",
         accessor: "evidence",
     },
-    {
-        Header: "Update",
-        Cell: ({ cell }) => <button onClick={updateHandler}>Update</button>,
-    },
 ];
 
 export default tablecolumns;
