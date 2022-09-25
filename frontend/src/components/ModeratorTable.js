@@ -8,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import Button from "@mui/material/Button";
 import axios from "axios";
 
 const columns = [
@@ -59,7 +60,7 @@ const ModeratorTable = (props) => {
       pubyear,
       doi,
       claim,
-      evidence,
+      evidence
     );
   });
 
@@ -72,42 +73,28 @@ const ModeratorTable = (props) => {
     setPage(0);
   };
 
-
-  const moderateArticles = (row) => {
-    return (
-      <TableCell>
-        <button type="button" onClick={() => handleAccept(row)}>
-          Accept
-        </button>
-        <button type="button" onClick={() => handleReject(row)}>
-          Reject
-        </button>
-      </TableCell>
-    );
-  }
-
-  function handleAccept(articleid) {
-    const updateArticle = { status: 'modAccepted' };
+  const handleAccept = (articleId) => {
+    const updateArticle = { status: "Accepted" };
     axios
-      .post('/update/' + articleid, updateArticle)
-      .then(res => {
+      .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
+      .then((res) => {
         console.log(res.data);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error with accepting article!");
-      })
+      });
   }
 
-  function handleReject(articleid) {
-    const updateArticle = { status: 'modRejected' };
+  const handleReject = (articleId) => {
+    const updateArticle = { status: "Rejected" };
     axios
-      .post('/update/' + articleid, updateArticle)
-      .then(res => {
+      .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
+      .then((res) => {
         console.log(res.data);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Error with rejecting article!");
-      })
+      });
   }
 
   return (
@@ -135,13 +122,22 @@ const ModeratorTable = (props) => {
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
                     {columns.map((column) => {
                       const value = row[column.id];
+                      if (column.id === "action") {
+                        return (
+                          <>
+                            <Button variant="contained" onClick={()=> handleAccept(row.id)}>Accept</Button>
+                            <Button variant="contained" onClick={()=> handleReject(row.id)}>Decline</Button>
+                          </>
+                        );
+                      }
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number" ? column.format(value) : value}
+                          {column.format && typeof value === "number"
+                            ? column.format(value)
+                            : value}
                         </TableCell>
                       );
                     })}
-                    {moderateArticles(row.id)}
                   </TableRow>
                 );
               })}
@@ -159,6 +155,6 @@ const ModeratorTable = (props) => {
       />
     </Paper>
   );
-}
+};
 
 export default ModeratorTable;
