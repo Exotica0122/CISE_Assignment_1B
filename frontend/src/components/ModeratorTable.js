@@ -73,8 +73,8 @@ const ModeratorTable = (props) => {
     setPage(0);
   };
 
-  const handleAccept = (articleId) => {
-    const updateArticle = { status: "Accepted" };
+  const handleChecked = (articleId) => {
+    const updateArticle = { status: "Checked" };
     axios
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
@@ -125,7 +125,7 @@ const ModeratorTable = (props) => {
                       if (column.id === "action") {
                         return (
                           <>
-                            <Button variant="contained" color="success" onClick={()=> handleAccept(row.id)}>Accept</Button>
+                            <Button variant="contained" color="success" onClick={()=> handleChecked(row.id)}>Accept</Button>
                             <Button variant="outlined" color="error" onClick={()=> handleReject(row.id)}>Reject</Button>
                           </>
                         );
