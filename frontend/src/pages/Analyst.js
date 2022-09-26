@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ArticlesTable from "../components/ArticlesTable";
+import ModeratorTable from "../components/ModeratorTable";
 
 import axios from "axios";
 
@@ -19,7 +19,7 @@ const Analyst = () => {
 
   const dataColumn =
     articles.length > 0 ? (
-      <ArticlesTable articles={articles} />
+      <ModeratorTable articles={articles} />
     ) : (
       <p>Loading articles</p>
     );

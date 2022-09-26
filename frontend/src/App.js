@@ -2,7 +2,6 @@ import React from "react";
 import {
   Route,
   Switch,
-  NavLink,
   BrowserRouter as Router,
   Redirect,
 } from "react-router-dom";
@@ -12,31 +11,14 @@ import SubmitArticle from "./pages/Submit-Article";
 import NotFoundPage from "./pages/404";
 import Moderator from "./pages/Moderator";
 import Analyst from "./pages/Analyst";
+import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
     <Router>
       <div>
-        <h1>Software Engineering Empirical Evidence Database (SEED)</h1>
-        <ul className="header">
-          <li>
-            <NavLink exact to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/SEPractice">Select the Practice</NavLink>
-          </li>
-          <li>
-            <NavLink to="/SubmitArticle">Submit an Article</NavLink>
-          </li>
-          <li>
-            <NavLink to="/admin">Moderator Page</NavLink>
-          </li>
-          <li>
-            <NavLink to="/analyst">Analyst Page</NavLink>
-          </li>
-        </ul>
+        <h1 style={{color: "#303030"}}>Software Engineering Empirical Evidence Database (SEED)</h1>
+        <NavBar />
         <div className="content">
           <Switch>
             <Route exact path="/">

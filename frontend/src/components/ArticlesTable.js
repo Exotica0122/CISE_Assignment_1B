@@ -120,6 +120,6 @@ const ArticlesTable = (props) => {
       />
     </Paper>
   );
-}
+};
 
 export default ArticlesTable;
