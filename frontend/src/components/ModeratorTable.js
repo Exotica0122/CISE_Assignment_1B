@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import axios from "axios";
 
 const columns = [
@@ -127,8 +128,10 @@ const ModeratorTable = (props) => {
                       if (column.id === "action") {
                         return (
                           <>
-                            <Button variant="contained" color="success" onClick={()=> handleChecked(row.id)}>Accept</Button>
-                            <Button variant="outlined" color="error" onClick={()=> handleReject(row.id)}>Reject</Button>
+                            <ButtonGroup>
+                              <Button variant="contained" color="success" onClick={() => handleChecked(row.id)}>Accept</Button>
+                              <Button variant="outlined" color="error" onClick={() => handleReject(row.id)}>Reject</Button>
+                            </ButtonGroup>
                           </>
                         );
                       }
