@@ -78,6 +78,7 @@ const ModeratorTable = (props) => {
     axios
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
+        alert("Article has been moderated!");
         console.log(res.data);
       })
       .catch((err) => {
@@ -90,6 +91,7 @@ const ModeratorTable = (props) => {
     axios
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
+        alert("Article has been rejected!");
         console.log(res.data);
       })
       .catch((err) => {
