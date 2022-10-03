@@ -8,6 +8,9 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import axios from "axios";
 
 const columns = [
   { id: "title", label: "Title", minWidth: 220 },
@@ -15,6 +18,9 @@ const columns = [
   { id: "source", label: "Source", minWidth: 100 },
   { id: "pubyear", label: "Pub. Year", minWidth: 50 },
   { id: "doi", label: "DOI", minWidth: 100 },
+  { id: "claim", label: "Claim", minWidth: 75 },
+  { id: "evidence", label: "Evidence", minWidth: 75 },
+  { id: "action", label: "Action", minWidth: 75 },
 ];
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -68,6 +74,34 @@ const ModeratorTable = (props) => {
     setPage(0);
   };
 
+  const handleChecked = (articleId) => {
+    const updateArticle = { status: "Checked" };
+    axios
+      .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
+      .then((res) => {
+        alert("Article has been moderated!");
+        window.location.reload(false);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("Error with accepting article!");
+      });
+  }
+
+  const handleReject = (articleId) => {
+    const updateArticle = { status: "Rejected" };
+    axios
+      .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
+      .then((res) => {
+        alert("Article has been rejected!");
+        window.location.reload(false);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("Error with rejecting article!");
+      });
+  }
+
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
       <TableContainer sx={{ maxHeight: 640 }}>
@@ -93,6 +127,16 @@ const ModeratorTable = (props) => {
                   <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
                     {columns.map((column) => {
                       const value = row[column.id];
+                      if (column.id === "action") {
+                        return (
+                          <>
+                            <ButtonGroup>
+                              <Button variant="contained" color="success" onClick={() => { if (window.confirm('Are you sure you want to moderate this article?')) { handleChecked(row.id) }; }}>Accept</Button>
+                              <Button variant="outlined" color="error" onClick={() => { if (window.confirm('Are you sure you want to reject this article?')) { handleReject(row.id) }; }}>Reject</Button>
+                            </ButtonGroup>
+                          </>
+                        );
+                      }
                       return (
                         <TableCell key={column.id} align={column.align}>
                           {column.format && typeof value === "number"

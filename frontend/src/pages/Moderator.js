@@ -10,9 +10,8 @@ const Moderator = () => {
     axios
       .get("http://localhost:8082/api/articles")
       .then((res) => {
-        setArticles(
-          res.data.filter((article) => article.status === "Unchecked")
-        );
+        const checkedArticles = res.data;
+        setArticles(checkedArticles.filter(article => article.status.includes('Unchecked')))
       })
       .catch((error) => {
         console.log(error);

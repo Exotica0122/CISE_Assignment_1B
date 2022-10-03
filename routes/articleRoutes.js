@@ -13,3 +13,6 @@ router.put("/:id", articleController.editArticleById);
 router.delete("/:id", articleController.deleteArticleById);
 
 module.exports = router;
+
+// Moderator Routes
+router.post('/update/:id', articleController.editArticleStatusById);
