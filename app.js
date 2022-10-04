@@ -22,17 +22,17 @@ app.use(express.json({ extended: false }));
 // use Routes
 app.use("/api/articles", articles);
 
-// if (process.env.NODE_ENV === "production") {
-//     app.use(express.static(path.join(__dirname, "frontend/build")));
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "frontend/build")));
 
-//     app.get("*", (req, res) => {
-//         res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
-//     });
-// } else {
-//     app.get("/", (req, res) => {
-//         res.send("API Running");
-//     });
-// }
+    app.get("*", (req, res) => {
+        res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+    });
+} else {
+    app.get("/", (req, res) => {
+        res.send("API Running");
+    });
+}
 
 const port = process.env.PORT || 8082;
 
