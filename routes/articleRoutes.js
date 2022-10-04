@@ -15,4 +15,7 @@ router.delete("/:id", articleController.deleteArticleById);
 module.exports = router;
 
 // Moderator Routes
-router.post('/update/:id', articleController.editArticleStatusById);
+router.post("/update/:id", articleController.editArticleStatusById);
+
+// Analyst routes
+router.post("/analyst/:id", articleController.postSetArticleClaimAndEvidence);
