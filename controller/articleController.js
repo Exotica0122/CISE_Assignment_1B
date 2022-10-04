@@ -22,7 +22,7 @@ const getArticleById = (req, res, next) => {
 const postArticle = (req, res, next) => {
     Article.create(req.body)
         .then((articles) => {
-            res.json({ msg: "Book added successfully" });
+            res.json({ msg: "Article added successfully" });
         })
         .catch((err) =>
             res
@@ -46,6 +46,7 @@ const editArticleById = (req, res, next) => {
             article.evidence = evidence;
             res.json(article);
         })
+        .then(() => res.status(202).json({ msg: "Article added successfully" }))
         .catch((err) =>
             res
                 .status(400)

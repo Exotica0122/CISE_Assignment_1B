@@ -1,8 +1,8 @@
 const path = require("path");
 const express = require("express");
-const connectDB = require("./config/db");
+const DB = require("./config/db");
 var cors = require("cors");
-require("dotenv").config({ path: "./config.env" }); // TODO: add this 
+require("dotenv").config({ path: "./config.env" }); // TODO: add this
 
 // routes
 // TODO: Add routes for articles
@@ -11,7 +11,7 @@ const articles = require("./routes/articleRoutes");
 const app = express();
 
 // Connect Database
-connectDB();
+DB.connectDB();
 
 // cors
 app.use(cors({ origin: true, credentials: true }));
@@ -37,3 +37,5 @@ app.use("/api/articles", articles);
 const port = process.env.PORT || 8082;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
+module.exports = app;
