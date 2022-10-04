@@ -8,7 +8,7 @@ const Analyst = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:8082/api/articles")
+            .get("https://yung-blad-articles.herokuapp.com/api/articles")
             .then((res) => {
                 setArticles(
                     res.data.filter((article) => article.status === "Checked")

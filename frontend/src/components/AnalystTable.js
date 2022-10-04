@@ -121,7 +121,7 @@ const AnalystTable = (props) => {
         const updateArticle = { status: "Rejected" };
         axios
             .post(
-                `http://localhost:8082/api/articles/update/${articleId}`,
+                `https://yung-blad-articles.herokuapp.com/api/articles/update/${articleId}`,
                 updateArticle
             )
             .then((res) => {
@@ -145,7 +145,7 @@ const AnalystTable = (props) => {
         event.preventDefault();
 
         axios
-            .post(`http://localhost:8082/api/articles/analyst/${id}`, {
+            .post(`https://yung-blad-articles.herokuapp.com/api/articles/analyst/${id}`, {
                 claim,
                 evidence,
             })
