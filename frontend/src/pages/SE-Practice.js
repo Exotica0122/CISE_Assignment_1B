@@ -25,11 +25,33 @@ const SEPractice = () => {
   }, []);
 
   let filteredArticle = articles;
+
   if (practice && practice !== "none") {
     filteredArticle = articles.filter(
       (article) => article.sepractice === practice
     );
   }
+
+  if (search) {
+    if (practice === "TDD") {
+      filteredArticle = articles.filter(
+        (article) => article.sepractice === "TDD" && article.title.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+    } else if (practice === "Mob programming") {
+      filteredArticle = articles.filter(
+        (article) => article.sepractice === "Mob programming" && article.title.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+    } else {
+      filteredArticle = articles.filter(
+        (article) => article.title.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+    }
+  }
+
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+    console.log(search);
+  };
 
   let dataColumn =
     articles.length > 0 ? (
@@ -38,9 +60,6 @@ const SEPractice = () => {
       <p>Loading articles</p>
     );
 
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-  };
 
   return (
     <div>
