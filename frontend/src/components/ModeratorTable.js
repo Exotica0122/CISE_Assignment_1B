@@ -11,15 +11,13 @@ import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import axios from "axios";
-
+import Box from '@mui/material/Box';
 const columns = [
   { id: "title", label: "Title", minWidth: 220 },
   { id: "authors", label: "Authors", minWidth: 100 },
   { id: "source", label: "Source", minWidth: 100 },
   { id: "pubyear", label: "Pub. Year", minWidth: 50 },
   { id: "doi", label: "DOI", minWidth: 100 },
-  { id: "claim", label: "Claim", minWidth: 75 },
-  { id: "evidence", label: "Evidence", minWidth: 75 },
   { id: "action", label: "Action", minWidth: 75 },
 ];
 
@@ -130,10 +128,14 @@ const ModeratorTable = (props) => {
                       if (column.id === "action") {
                         return (
                           <>
-                            <ButtonGroup>
+                            <Box
+                              m={1}
+                              display="flex"
+                              alignItems="center"
+                            >
                               <Button variant="contained" color="success" onClick={() => { if (window.confirm('Are you sure you want to moderate this article?')) { handleChecked(row.id) }; }}>Accept</Button>
                               <Button variant="outlined" color="error" onClick={() => { if (window.confirm('Are you sure you want to reject this article?')) { handleReject(row.id) }; }}>Reject</Button>
-                            </ButtonGroup>
+                            </Box>
                           </>
                         );
                       }
