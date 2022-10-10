@@ -11,7 +11,6 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import {
     Modal,
-    ButtonGroup,
     Box,
     Typography,
     Button,
@@ -245,7 +244,11 @@ const AnalystTable = (props) => {
                                                 if (column.id === "action") {
                                                     return (
                                                         <>
-                                                            <ButtonGroup>
+                                                            <Box
+                                                                m={2}
+                                                                display="flex"
+                                                                alignItems="center"
+                                                            >
                                                                 <Button
                                                                     variant="contained"
                                                                     color="success"
@@ -274,7 +277,7 @@ const AnalystTable = (props) => {
                                                                 >
                                                                     Reject
                                                                 </Button>
-                                                            </ButtonGroup>
+                                                            </Box>
                                                         </>
                                                     );
                                                 }
@@ -284,11 +287,11 @@ const AnalystTable = (props) => {
                                                         align={column.align}
                                                     >
                                                         {column.format &&
-                                                        typeof value ===
+                                                            typeof value ===
                                                             "number"
                                                             ? column.format(
-                                                                  value
-                                                              )
+                                                                value
+                                                            )
                                                             : value}
                                                     </TableCell>
                                                 );

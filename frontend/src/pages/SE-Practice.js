@@ -44,7 +44,9 @@ const SEPractice = () => {
 
   return (
     <div>
-      <h2>Select SE Practice to get evidence for the claimed benefits</h2>
+      <div className="content-center">
+        <h1>View Articles</h1>
+      </div>
       <Dropdown setPractice={setPractice} />
       <TextField
         value={search}

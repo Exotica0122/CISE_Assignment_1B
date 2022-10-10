@@ -26,8 +26,8 @@ const Moderator = () => {
     );
 
   return (
-    <div>
-      <h2>Approve Articles Submitted by Users</h2>
+    <div className="content-center">
+      <h1>Moderate Articles Proposed by Users</h1>
       {dataColumn}
     </div>
   );
