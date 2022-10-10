@@ -11,6 +11,7 @@ import SubmitArticle from "./pages/Submit-Article";
 import NotFoundPage from "./pages/404";
 import Moderator from "./pages/Moderator";
 import Analyst from "./pages/Analyst";
+import Login from "./pages/login";
 import NavBar from "./components/NavBar";
 
 const App = () => {
@@ -34,6 +35,9 @@ const App = () => {
             </Route>
             <Route exact path="/analyst">
               <Analyst />
+            </Route>
+            <Route exact path="/login">
+              <Login />
             </Route>
             <Route exact path="/404">
               <NotFoundPage />
