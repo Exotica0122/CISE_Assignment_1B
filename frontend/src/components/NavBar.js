@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 const pages = [
     { title: "Home", link: "/" },
     { title: "View Articles", link: "/SEPractice" },
@@ -33,6 +34,7 @@ const NavBar = () => {
         <AppBar position="static" style={{ background: "#2E3B55" }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    <LibraryBooksIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                     <Typography
                         variant="h5"
                         noWrap
@@ -98,6 +100,7 @@ const NavBar = () => {
                             ))}
                         </Menu>
                     </Box>
+                    <LibraryBooksIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                     <Typography
                         variant="h5"
                         noWrap

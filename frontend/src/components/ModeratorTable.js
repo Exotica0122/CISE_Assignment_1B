@@ -127,6 +127,7 @@ const ModeratorTable = (props) => {
                       if (column.id === "action") {
                         return (
                           <>
+                          <TableCell>
                             <Box
                               m={1}
                               display="flex"
@@ -135,6 +136,7 @@ const ModeratorTable = (props) => {
                               <Button variant="contained" color="success" onClick={() => { if (window.confirm('Are you sure you want to moderate this article?')) { handleChecked(row.id) }; }}>Accept</Button>
                               <Button variant="outlined" color="error" onClick={() => { if (window.confirm('Are you sure you want to reject this article?')) { handleReject(row.id) }; }}>Reject</Button>
                             </Box>
+                            </TableCell>
                           </>
                         );
                       }

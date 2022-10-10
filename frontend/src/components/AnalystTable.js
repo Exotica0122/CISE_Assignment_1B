@@ -244,6 +244,7 @@ const AnalystTable = (props) => {
                                                 if (column.id === "action") {
                                                     return (
                                                         <>
+                                                        <TableCell>
                                                             <Box
                                                                 m={2}
                                                                 display="flex"
@@ -278,6 +279,7 @@ const AnalystTable = (props) => {
                                                                     Reject
                                                                 </Button>
                                                             </Box>
+                                                            </TableCell>
                                                         </>
                                                     );
                                                 }
