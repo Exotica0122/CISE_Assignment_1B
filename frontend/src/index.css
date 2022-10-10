@@ -36,3 +36,6 @@ ul.header li a {
 .active {
   background-color: #0099FF;
 }
+.content-center {
+  text-align: center;
+}
