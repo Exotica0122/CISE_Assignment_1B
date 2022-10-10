@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 const pages = [
     { title: "Home", link: "/" },
     { title: "View Articles", link: "/SEPractice" },
