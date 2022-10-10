@@ -33,9 +33,19 @@ const SEPractice = () => {
   }
 
   if (search) {
-    filteredArticle = articles.filter(
-      (article) => article.title.toLowerCase().includes(search.toLocaleLowerCase())
-    );
+    if (practice === "TDD") {
+      filteredArticle = articles.filter(
+        (article) => article.sepractice === "TDD" && article.title.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+    } else if (practice === "Mob programming") {
+      filteredArticle = articles.filter(
+        (article) => article.sepractice === "Mob programming" && article.title.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+    } else {
+      filteredArticle = articles.filter(
+        (article) => article.title.toLowerCase().includes(search.toLocaleLowerCase())
+      );
+    }
   }
 
   const handleSearchChange = (event) => {
