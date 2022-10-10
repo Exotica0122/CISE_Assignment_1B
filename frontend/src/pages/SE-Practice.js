@@ -25,11 +25,23 @@ const SEPractice = () => {
   }, []);
 
   let filteredArticle = articles;
+
   if (practice && practice !== "none") {
     filteredArticle = articles.filter(
       (article) => article.sepractice === practice
     );
   }
+
+  if (search) {
+    filteredArticle = articles.filter(
+      (article) => article.title.toLowerCase().includes(search.toLocaleLowerCase())
+    );
+  }
+
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+    console.log(search);
+  };
 
   let dataColumn =
     articles.length > 0 ? (
@@ -38,9 +50,6 @@ const SEPractice = () => {
       <p>Loading articles</p>
     );
 
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-  };
 
   return (
     <div>
