@@ -42,7 +42,7 @@ const SubmissionForm = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <FormControl>
+        <FormControl fullWidth sx={{ m: 1, width: '65ch' }}>
           <InputLabel id="practice-label">Practice</InputLabel>
           <Select
             labelId="practice-label"
