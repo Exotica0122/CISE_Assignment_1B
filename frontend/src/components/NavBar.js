@@ -14,8 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 const pages = [
     { title: "Home", link: "/" },
-    { title: "Select the Practice", link: "/SEPractice" },
-    { title: "Submit an Article", link: "/SubmitArticle" },
+    { title: "View Articles", link: "/SEPractice" },
+    { title: "Submit Article", link: "/SubmitArticle" },
     { title: "Moderator Page", link: "/admin" },
     { title: "Analyst Page", link: "/analyst" },
 ];
