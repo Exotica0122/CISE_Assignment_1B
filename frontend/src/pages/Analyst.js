@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AnalystTable from "../components/AnalystTable";
-
+import '../index.css';
 import axios from "axios";
 
 const Analyst = () => {
@@ -27,8 +27,8 @@ const Analyst = () => {
         );
 
     return (
-        <div>
-            <h2>Analyst Article</h2>
+        <div className="content-center">
+            <h1>Analyse Articles</h1>
             {dataColumn}
         </div>
     );

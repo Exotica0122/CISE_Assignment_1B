@@ -4,7 +4,7 @@ import '../index.css';
 const SubmitArticle = () => {
     return (
         <div className="content-center">
-            <h2>Submit Article</h2>
+            <h1>Submit Article</h1>
             <p>
                 This will be a form to allow submitters to submit an article for
                 possible inclusion in our SEED repo.
