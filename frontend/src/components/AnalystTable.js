@@ -125,8 +125,6 @@ const AnalystTable = (props) => {
             )
             .then((res) => {
                 alert("Article has been rejected!");
-                window.location.reload(false);
-                console.log(res.data);
             })
             .catch((err) => {
                 console.log("Error with rejecting article!");
