@@ -37,7 +37,7 @@ function LoginForm({ onLogin, currentUser }) {
         const selectedUser = users.find(h => h.email === details.email && h.password === details.password);
 
         if (selectedUser !== null) {
-            if(selectedUser.type == 'moderator') {
+            if(selectedUser.type === 'moderator') {
               setErrorMsg("");
               onLogin(selectedUser.name, selectedUser.type, qtyPendingItem);
             } else {
