@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react'
 import {
   Route,
   Switch,
@@ -11,13 +11,28 @@ import SubmitArticle from "./pages/Submit-Article";
 import NotFoundPage from "./pages/404";
 import Moderator from "./pages/Moderator";
 import Analyst from "./pages/Analyst";
+
 import NavBar from "./components/NavBar";
+import LoginForm from "./pages/LoginForm";
+
 
 const App = () => {
+  const [loggedUser, setLoggedUser] = useState({ name: "", type: "" });
+  const [qtyPendingItems, setQtyPendingItems] = useState(0);
+
+  const onLogin = (userName, userType, qtyPendingItems) => {
+    setLoggedUser({ name: userName, type: userType });
+    setQtyPendingItems(qtyPendingItems);
+  }
+
+  const getUserDetail = () => {
+    return { name: loggedUser.name, type: loggedUser.type };
+  }
+
   return (
     <Router>
       <div>
-        <NavBar />
+        <NavBar currentUser={getUserDetail()} qtyPendingItems={qtyPendingItems} />
         <div className="content">
           <Switch>
             <Route exact path="/">
@@ -30,11 +45,16 @@ const App = () => {
               <SubmitArticle />
             </Route>
             <Route exact path="/admin">
-              <Moderator />
+              <Moderator onLogin={onLogin} currentUser={getUserDetail()} />
             </Route>
             <Route exact path="/analyst">
-              <Analyst />
+              <Analyst onLogin={onLogin} currentUser={getUserDetail()}  />
             </Route>
+
+            <Route exact path="/LoginForm">
+              <LoginForm onLogin={onLogin} currentUser={getUserDetail()} />
+            </Route>
+
             <Route exact path="/404">
               <NotFoundPage />
             </Route>

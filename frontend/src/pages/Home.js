@@ -11,6 +11,15 @@ const Home = () => {
         <li>Enrico Serrano</li>
         <li>Leandro Machado</li>
       </ul>
+      <h4>Login Crendentials (for marking purposes)</h4>
+      <h4>Moderator Page</h4>
+      <p>Name - Can be any name</p>
+      <p>Email - moderator@test.com</p>
+      <p>Password - moderator</p>
+      <h4>Analyst Page</h4>
+      <p>Name - Can be any name</p>
+      <p>Email - analyst@test.com</p>
+      <p>Password - analyst</p>
     </div>
   );
 }

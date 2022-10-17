@@ -11,6 +11,7 @@ import TableRow from "@mui/material/TableRow";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import Box from '@mui/material/Box';
+
 const columns = [
   { id: "title", label: "Title", minWidth: 220 },
   { id: "authors", label: "Authors", minWidth: 100 },
@@ -77,8 +78,8 @@ const ModeratorTable = (props) => {
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
         alert("Article has been moderated!");
-        window.location.reload(false);
-        console.log(res.data);
+        //window.location.reload(false);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.log("Error with accepting article!");
@@ -91,8 +92,8 @@ const ModeratorTable = (props) => {
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
         alert("Article has been rejected!");
-        window.location.reload(false);
-        console.log(res.data);
+        //window.location.reload(false);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.log("Error with rejecting article!");
@@ -127,15 +128,15 @@ const ModeratorTable = (props) => {
                       if (column.id === "action") {
                         return (
                           <>
-                          <TableCell>
-                            <Box
-                              m={1}
-                              display="flex"
-                              alignItems="center"
-                            >
-                              <Button variant="contained" color="success" onClick={() => { if (window.confirm('Are you sure you want to moderate this article?')) { handleChecked(row.id) }; }}>Accept</Button>
-                              <Button variant="outlined" color="error" onClick={() => { if (window.confirm('Are you sure you want to reject this article?')) { handleReject(row.id) }; }}>Reject</Button>
-                            </Box>
+                            <TableCell>
+                              <Box
+                                m={1}
+                                display="flex"
+                                alignItems="center"
+                              >
+                                <Button variant="contained" color="success" onClick={() => { if (window.confirm('Are you sure you want to moderate this article?')) { handleChecked(row.id) }; }}>Accept</Button>
+                                <Button variant="outlined" color="error" onClick={() => { if (window.confirm('Are you sure you want to reject this article?')) { handleReject(row.id) }; }}>Reject</Button>
+                              </Box>
                             </TableCell>
                           </>
                         );
