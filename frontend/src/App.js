@@ -13,7 +13,7 @@ import Moderator from "./pages/Moderator";
 import Analyst from "./pages/Analyst";
 
 import NavBar from "./components/NavBar";
-import TestLoginForm from "./pages/testLoginForm";
+import LoginForm from "./pages/LoginForm";
 
 
 const App = () => {
@@ -51,8 +51,8 @@ const App = () => {
               <Analyst currentUser={getUserDetail()}  />
             </Route>
 
-            <Route exact path="/TestLoginForm">
-              <TestLoginForm onLogin={onLogin} currentUser={getUserDetail()} />
+            <Route exact path="/LoginForm">
+              <LoginForm onLogin={onLogin} currentUser={getUserDetail()} />
             </Route>
 
             <Route exact path="/404">

@@ -77,8 +77,8 @@ const ModeratorTable = (props) => {
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
         alert("Article has been moderated!");
-        window.location.reload(false);
-        console.log(res.data);
+        //window.location.reload(false);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.log("Error with accepting article!");
@@ -91,8 +91,8 @@ const ModeratorTable = (props) => {
       .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
         alert("Article has been rejected!");
-        window.location.reload(false);
-        console.log(res.data);
+        //window.location.reload(false);
+        //console.log(res.data);
       })
       .catch((err) => {
         console.log("Error with rejecting article!");
