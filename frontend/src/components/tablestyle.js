@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-const Styles = styled.div `
+const Styles = styled.div`
   table {
     width: 100%;
     border-spacing: 0;

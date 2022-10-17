@@ -242,41 +242,41 @@ const AnalystTable = (props) => {
                                                 if (column.id === "action") {
                                                     return (
                                                         <>
-                                                        <TableCell>
-                                                            <Box
-                                                                m={2}
-                                                                display="flex"
-                                                                alignItems="center"
-                                                            >
-                                                                <Button
-                                                                    variant="contained"
-                                                                    color="success"
-                                                                    onClick={() =>
-                                                                        handleOpen(
-                                                                            row.id
-                                                                        )
-                                                                    }
+                                                            <TableCell>
+                                                                <Box
+                                                                    m={2}
+                                                                    display="flex"
+                                                                    alignItems="center"
                                                                 >
-                                                                    Accept
-                                                                </Button>
-                                                                <Button
-                                                                    variant="outlined"
-                                                                    color="error"
-                                                                    onClick={() => {
-                                                                        if (
-                                                                            window.confirm(
-                                                                                "Are you sure you want to reject this article?"
-                                                                            )
-                                                                        ) {
-                                                                            handleReject(
+                                                                    <Button
+                                                                        variant="contained"
+                                                                        color="success"
+                                                                        onClick={() =>
+                                                                            handleOpen(
                                                                                 row.id
-                                                                            );
+                                                                            )
                                                                         }
-                                                                    }}
-                                                                >
-                                                                    Reject
-                                                                </Button>
-                                                            </Box>
+                                                                    >
+                                                                        Accept
+                                                                    </Button>
+                                                                    <Button
+                                                                        variant="outlined"
+                                                                        color="error"
+                                                                        onClick={() => {
+                                                                            if (
+                                                                                window.confirm(
+                                                                                    "Are you sure you want to reject this article?"
+                                                                                )
+                                                                            ) {
+                                                                                handleReject(
+                                                                                    row.id
+                                                                                );
+                                                                            }
+                                                                        }}
+                                                                    >
+                                                                        Reject
+                                                                    </Button>
+                                                                </Box>
                                                             </TableCell>
                                                         </>
                                                     );

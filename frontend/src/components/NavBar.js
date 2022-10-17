@@ -65,7 +65,7 @@ const NavBar = ({ currentUser, qtyPendingItems }) => {
             to={page.link}
         >
             {page.title}
-            
+
             {page.qty > 0 &&
                 <Badge color="primary" badgeContent={page.qty} sx={{ marginTop: "-26px" }} />
             }
