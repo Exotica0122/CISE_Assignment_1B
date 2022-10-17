@@ -73,7 +73,7 @@ function LoginForm({ onLogin, currentUser }) {
                     margin="normal"
                     variant="contained"
                     color="primary"
-                    onClick={logOff}>Logoff</Button>
+                    onClick={logOff}>Log Out</Button>
             </Box>
         );
     }
@@ -86,7 +86,7 @@ function LoginForm({ onLogin, currentUser }) {
       alignItems="center"
     >
       <FormControl fullWidth sx={{ m: 1, width: '65ch' }}>
-        <h1>Login</h1>
+        <h1 className="content-center">Login</h1>
         {(errorMsg !== "") ? (<div className="error">{errorMsg}</div>) : ""}
         <TextField
           variant="outlined"
