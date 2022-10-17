@@ -48,7 +48,7 @@ const App = () => {
               <Moderator onLogin={onLogin} currentUser={getUserDetail()} />
             </Route>
             <Route exact path="/analyst">
-              <Analyst currentUser={getUserDetail()}  />
+              <Analyst onLogin={onLogin} currentUser={getUserDetail()}  />
             </Route>
 
             <Route exact path="/LoginForm">
