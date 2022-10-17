@@ -8,10 +8,10 @@ import {
     FormControl,
 } from "@mui/material";
 
-const Analyst = ({ currentUser }) => {
+const Analyst = ({ onLogin, currentUser }) => {
     const [articles, setArticles] = useState([]);
     const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
-
+    const [qtyPendingAna, setQtyPendingAna] = useState(0);
     useEffect(() => {
         axios
             .get("http://localhost:8082/api/articles")
@@ -19,11 +19,17 @@ const Analyst = ({ currentUser }) => {
                 setArticles(
                     res.data.filter((article) => article.status === "Checked")
                 );
+                const totalanaCount = res.data.filter(article => article.status.includes('Checked'));
+                setQtyPendingAna(totalanaCount.length);
             })
             .catch((error) => {
                 console.log(error);
             });
     }, [reducerValue]);
+
+    function updateNotification() {
+        onLogin("", "analyst", qtyPendingAna);
+    }
 
     const dataColumn =
         articles.length > 0 ? (
@@ -48,7 +54,10 @@ const Analyst = ({ currentUser }) => {
                         margin="normal"
                         variant="contained"
                         color="primary"
-                        onClick={forceUpdate}
+                        onClick={() => {
+                            forceUpdate();
+                            updateNotification();
+                        }}
                     >
                         Refresh Table
                     </Button>

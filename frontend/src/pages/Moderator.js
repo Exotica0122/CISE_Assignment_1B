@@ -7,9 +7,10 @@ import {
 } from "@mui/material";
 import axios from "axios";
 
-const Moderator = ({ currentUser }) => {
+const Moderator = ({ onLogin, currentUser }) => {
   const [articles, setArticles] = useState([]);
   const [reducerValue, forceUpdate] = useReducer(x => x + 1, 0);
+  const [qtyPendingMod, setQtyPendingMod] = useState(0);
 
   useEffect(() => {
     axios
@@ -17,12 +18,17 @@ const Moderator = ({ currentUser }) => {
       .then((res) => {
         const checkedArticles = res.data;
         setArticles(checkedArticles.filter(article => article.status.includes('Unchecked')))
+        const totalmodCount = res.data.filter(article => article.status.includes('Unchecked'));
+        setQtyPendingMod(totalmodCount.length);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [reducerValue]);
 
+  function updateNotification() {
+    onLogin("", "moderator", qtyPendingMod);
+  }
   const dataColumn =
     articles.length > 0 ? (
       <ModeratorTable articles={articles} />
@@ -48,7 +54,10 @@ const Moderator = ({ currentUser }) => {
             margin="normal"
             variant="contained"
             color="primary"
-            onClick={forceUpdate}
+            onClick={() => {
+              forceUpdate();
+              updateNotification();
+            }}
           >
             Refresh Table
           </Button>

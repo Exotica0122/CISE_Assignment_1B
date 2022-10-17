@@ -45,7 +45,7 @@ const App = () => {
               <SubmitArticle />
             </Route>
             <Route exact path="/admin">
-              <Moderator currentUser={getUserDetail()} />
+              <Moderator onLogin={onLogin} currentUser={getUserDetail()} />
             </Route>
             <Route exact path="/analyst">
               <Analyst currentUser={getUserDetail()}  />
