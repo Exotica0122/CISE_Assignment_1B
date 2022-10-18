@@ -48,9 +48,12 @@ function LoginForm({ onLogin, currentUser }) {
       setErrorMsg("Details do not match");
     }
   }
-
+/**
+ * This react hook is communicating through MongoDB to query how many articles are left to be moderated and analysed. 
+ * This result is sent into the navigation bar to display the total number. 
+ * This is dependent on the variable state 'refresh' to ensure that once the user has logged back in, it updates the article number. 
+ */
   useEffect(() => {
-    console.log('effect')
     axios
       .get("http://localhost:8082/api/articles")
       .then((res) => {
