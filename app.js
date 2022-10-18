@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const DB = require("./config/db");
 var cors = require("cors");
-require("dotenv").config({ path: "./config.env" }); // TODO: add this
+require("dotenv").config({ path: "./config.env" });
 
 // routes
 // TODO: Add routes for articles

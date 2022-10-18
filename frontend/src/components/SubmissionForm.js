@@ -26,7 +26,7 @@ const SubmissionForm = () => {
   const { register, handleSubmit, setValue } = useForm();
   const onSubmit = (data) => {
     axios
-      .post("http://localhost:8082/api/articles", data)
+      .post("https://yung-blad-articles.herokuapp.com/api/articles", data)
       .then((res) => {
         history.push("/SEPractice");
       })

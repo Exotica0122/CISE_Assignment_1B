@@ -75,7 +75,7 @@ const ModeratorTable = (props) => {
   const handleChecked = (articleId) => {
     const updateArticle = { status: "Checked" };
     axios
-      .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
+      .post(`https://yung-blad-articles.herokuapp.com/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
         alert("Article has been moderated!");
         //window.location.reload(false);
@@ -89,7 +89,7 @@ const ModeratorTable = (props) => {
   const handleReject = (articleId) => {
     const updateArticle = { status: "Rejected" };
     axios
-      .post(`http://localhost:8082/api/articles/update/${articleId}`, updateArticle)
+      .post(`https://yung-blad-articles.herokuapp.com/api/articles/update/${articleId}`, updateArticle)
       .then((res) => {
         alert("Article has been rejected!");
         //window.location.reload(false);

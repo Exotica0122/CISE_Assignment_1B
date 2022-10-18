@@ -14,7 +14,7 @@ const Moderator = ({ onLogin, currentUser }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/articles")
+      .get("https://yung-blad-articles.herokuapp.com/api/articles")
       .then((res) => {
         const checkedArticles = res.data;
         setArticles(checkedArticles.filter(article => article.status.includes('Unchecked')))

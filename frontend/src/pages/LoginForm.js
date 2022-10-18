@@ -55,7 +55,7 @@ function LoginForm({ onLogin, currentUser }) {
  */
   useEffect(() => {
     axios
-      .get("http://localhost:8082/api/articles")
+      .get("https://yung-blad-articles.herokuapp.com/api/articles")
       .then((res) => {
         const total = res.data.filter(article => article.status.includes('Unchecked'));
         setQtyPendingItem(total.length);
