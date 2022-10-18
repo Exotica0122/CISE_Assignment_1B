@@ -7,6 +7,14 @@ const getAllArticles = (req, res, next) => {
         .catch((err) => res.status(404).json({ msg: "No Articles found" }));
 };
 
+/**
+ * /articles/:id for finding articles
+ * by ID
+ * 
+ * @param {ObjectId} id - article id to find
+ * 
+ * @returns Article JSON with ID
+ */
 const getArticleById = (req, res, next) => {
     const articleId = req.params.id;
 

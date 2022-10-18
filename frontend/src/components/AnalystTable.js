@@ -11,7 +11,6 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import {
     Modal,
-    ButtonGroup,
     Box,
     Typography,
     Button,
@@ -126,8 +125,6 @@ const AnalystTable = (props) => {
             )
             .then((res) => {
                 alert("Article has been rejected!");
-                window.location.reload(false);
-                console.log(res.data);
             })
             .catch((err) => {
                 console.log("Error with rejecting article!");
@@ -245,36 +242,42 @@ const AnalystTable = (props) => {
                                                 if (column.id === "action") {
                                                     return (
                                                         <>
-                                                            <ButtonGroup>
-                                                                <Button
-                                                                    variant="contained"
-                                                                    color="success"
-                                                                    onClick={() =>
-                                                                        handleOpen(
-                                                                            row.id
-                                                                        )
-                                                                    }
+                                                            <TableCell>
+                                                                <Box
+                                                                    m={2}
+                                                                    display="flex"
+                                                                    alignItems="center"
                                                                 >
-                                                                    Accept
-                                                                </Button>
-                                                                <Button
-                                                                    variant="outlined"
-                                                                    color="error"
-                                                                    onClick={() => {
-                                                                        if (
-                                                                            window.confirm(
-                                                                                "Are you sure you want to reject this article?"
-                                                                            )
-                                                                        ) {
-                                                                            handleReject(
+                                                                    <Button
+                                                                        variant="contained"
+                                                                        color="success"
+                                                                        onClick={() =>
+                                                                            handleOpen(
                                                                                 row.id
-                                                                            );
+                                                                            )
                                                                         }
-                                                                    }}
-                                                                >
-                                                                    Reject
-                                                                </Button>
-                                                            </ButtonGroup>
+                                                                    >
+                                                                        Accept
+                                                                    </Button>
+                                                                    <Button
+                                                                        variant="outlined"
+                                                                        color="error"
+                                                                        onClick={() => {
+                                                                            if (
+                                                                                window.confirm(
+                                                                                    "Are you sure you want to reject this article?"
+                                                                                )
+                                                                            ) {
+                                                                                handleReject(
+                                                                                    row.id
+                                                                                );
+                                                                            }
+                                                                        }}
+                                                                    >
+                                                                        Reject
+                                                                    </Button>
+                                                                </Box>
+                                                            </TableCell>
                                                         </>
                                                     );
                                                 }
@@ -284,11 +287,11 @@ const AnalystTable = (props) => {
                                                         align={column.align}
                                                     >
                                                         {column.format &&
-                                                        typeof value ===
+                                                            typeof value ===
                                                             "number"
                                                             ? column.format(
-                                                                  value
-                                                              )
+                                                                value
+                                                            )
                                                             : value}
                                                     </TableCell>
                                                 );
